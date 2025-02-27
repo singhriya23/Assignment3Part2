@@ -1,0 +1,15 @@
+definition_version: 1
+snowpark:
+  project_name: "udf_function"
+  stage_name: "TOM_DB.ANALYTICS.DEPLOYMENT"
+  src: "udf_function_file/"
+  functions:
+    - name: "CONGESTION_CHANGE_CONSISTENCY"
+      database: "TOM_DB"
+      schema: "ANALYTICS"
+      handler: "function.congestion_change_consistency"
+      runtime: "3.10"
+      signature:
+        - name: "change_in_congestion"
+          type: "string"
+      returns: float
