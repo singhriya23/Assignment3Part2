@@ -1,6 +1,6 @@
-CREATE OR REPLACE NOTEBOOK IDENTIFIER('"DEMO_DB"."{{env}}_SCHEMA"."{{env}}_06_load_excel_files"')
-    FROM '@"DEMO_DB"."INTEGRATIONS"."DEMO_GIT_REPO"/branches/"{{branch}}"/notebooks/06_load_excel_files/'
-    QUERY_WAREHOUSE = 'DEMO_WH'
-    MAIN_FILE = '06_load_excel_files.ipynb';
+CREATE OR REPLACE NOTEBOOK IDENTIFIER('"TOM_DB"."{{env}}_SCHEMA"."{{env}}_load_raw"')
+    FROM '@"TOM_DB"."INTEGRATIONS"."DEMO_GIT_REPO"/branches/"{{branch}}"/load_raw/'
+    QUERY_WAREHOUSE = 'TOM_WH'
+    MAIN_FILE = 'load_raw.py';
 
-ALTER NOTEBOOK "DEMO_DB"."{{env}}_SCHEMA"."{{env}}_06_load_excel_files" ADD LIVE VERSION FROM LAST;
+ALTER NOTEBOOK "TOM_DB"."{{env}}_SCHEMA"."{{env}}_load_raw" ADD LIVE VERSION FROM LAST;
