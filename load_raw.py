@@ -39,7 +39,7 @@ def load_raw_table(session, tname=None, s3dir=None, schema=None):
 def load_all_raw_tables(session):
     try:
         # Set warehouse size for processing
-        _ = session.sql("ALTER WAREHOUSE HOL_WH SET WAREHOUSE_SIZE = XLARGE WAIT_FOR_COMPLETION = TRUE").collect()
+        _ = session.sql("ALTER WAREHOUSE TOM_WH SET WAREHOUSE_SIZE = XLARGE WAIT_FOR_COMPLETION = TRUE").collect()
         print("Warehouse set to XLARGE")
 
         # Load data into all raw tables
@@ -51,7 +51,7 @@ def load_all_raw_tables(session):
                 load_raw_table(session, tname=tname, s3dir=s3dir, schema=schema)
 
         # Reset warehouse size
-        _ = session.sql("ALTER WAREHOUSE HOL_WH SET WAREHOUSE_SIZE = XSMALL").collect()
+        _ = session.sql("ALTER WAREHOUSE TOM_WH SET WAREHOUSE_SIZE = XSMALL").collect()
         print("Warehouse size reset to XSMALL")
 
     except Exception as e:
