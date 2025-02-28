@@ -5,9 +5,9 @@ from snowflake.snowpark.functions import col, regexp_extract, when, regexp_repla
 session = Session.builder.getOrCreate()
 
 # Set role, warehouse, database, and schema
-session.use_role("TOM_ROLE")          # ✅ Set correct role
-session.use_warehouse("TOM_WH")      # ✅ Set correct warehouse
-session.use_database("TOM_DB")       # ✅ Set correct database
+session.use_role("TOM_ROLE")         
+session.use_warehouse("TOM_WH")      
+session.use_database("TOM_DB")       
 session.use_schema("HARMONIZED_TOM")
 
 # Create the table if it doesn't exist
