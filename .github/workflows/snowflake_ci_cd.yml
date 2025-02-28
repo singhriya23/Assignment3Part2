@@ -23,7 +23,11 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install --upgrade pip
-          pip install -r requirements.txt  # Ensure dependencies are installed properly
+          pip install snowflake-connector-python
+          pip install snowflake-snowpark-python
+          pip install python-dotenv
+
+            
 
       - name: Execute Snowflake Notebooks
         env:
@@ -35,4 +39,5 @@ jobs:
           SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
         run: |
           set -e  # Ensure script fails if any error occurs
-          python execute_snowflake_notebooks.py
+           
+          python Snowflake_notebook/Snowflake_function.py
